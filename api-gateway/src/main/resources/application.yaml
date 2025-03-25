@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods: "*"
+      routes:
+        - id: task-management-service
+          uri: lb://TASK-MANAGEMENT-SERVICE
+          predicates:
+            - Path=/api/task-management/**
+        - id: user-authentication-service
+          uri: lb://USER-AUTHENTICATION-SERVICE
+          predicates:
+            - Path=/api/auth/**
+        - id: file-storage-service
+          uri: lb://FILE-STORAGE-SERVICE
+          predicates:
+            - Path=/api/files/**
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # e.g. 1 day in milliseconds
+      refresh-token:
+        expiration: 604800000 # e.g. 7 days in milliseconds
+
+
+server:
+  port: 8080

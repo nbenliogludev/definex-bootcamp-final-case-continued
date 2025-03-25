@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c9a385ae-df41-482f-bfb5-c4be63144c20" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/src/main/java/com/nbenliogludev/eurekaserver/EurekaServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/src/test/java/com/nbenliogludev/eurekaserver/EurekaServerApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/FileStorageServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/controller/FileStorageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/dto/request/FileUploadRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/dto/response/FileUploadResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/dto/response/RestResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/entity/FileMetadata.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/entity/common/Auditable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/exception/FileNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/exception/FileStorageException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/repository/FileStorageRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/service/FileStorageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/service/impl/FileStorageServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/src/test/java/com/nbenliogludev/filestorageservice/FileStorageServiceApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log-aggregation-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log-aggregation-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log-aggregation-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log-aggregation-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log-aggregation-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log-aggregation-service/src/main/java/com/nbenliogludev/logaggregationservice/LogAggregationServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log-aggregation-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log-aggregation-service/src/test/java/com/nbenliogludev/logaggregationservice/LogAggregationServiceApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/TaskManagementServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/client/fileStorage/FileStorageClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/client/fileStorage/dto/FileValidateRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/client/fileStorage/service/FileStorageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/config/OpenApiConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/controller/CommentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/controller/DepartmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/controller/ProjectController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/controller/TaskController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/ErrorLogDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/InfoLogDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/request/CommentCreateRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/request/DepartmentCreateRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/request/DepartmentUpdateRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/request/ProjectCreateRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/request/ProjectUpdateRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/request/TaskCreateRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/request/TaskUpdateRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/response/CommentCreateResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/response/DepartmentCreateResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/response/ProjectCreateResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/response/RestResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/response/TaskCreateResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/entity/Attachment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/entity/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/entity/Department.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/entity/Project.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/entity/Task.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/enums/ProjectStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/enums/TaskPriority.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/enums/TaskState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/exception/LogProducerException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/kafka/producer/LogProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/mapper/CommentMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/mapper/DepartmentMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/mapper/ProjectMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/mapper/TaskMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/repository/CommentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/repository/DepartmentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/repository/ProjectRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/repository/TaskRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/service/CommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/service/DepartmentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/service/ProjectService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/service/TaskService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/service/impl/CommentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/service/impl/DepartmentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/service/impl/ProjectServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/service/impl/TaskServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/test/java/com/nbenliogludev/taskmanagementservice/TaskManagementServiceApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/UserAuthenticationServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/config/ApplicationConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/config/SecurityConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/controller/AuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/dto/request/AuthenticationRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/dto/request/UserCreateRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/dto/response/AuthenticationResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/dto/response/RestResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/entity/Permission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/entity/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/entity/Token.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/entity/TokenType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/repository/TokenRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/service/AuthenticationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/service/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/test/java/com/nbenliogludev/userauthenticationservice/UserAuthenticationServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/nbenliogludev/apigateway/config/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/nbenliogludev/apigateway/config/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/nbenliogludev/apigateway/mapper/RoutePermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/nbenliogludev/apigateway/mapper/RoutePermissionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/nbenliogludev/apigateway/util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/nbenliogludev/apigateway/util/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/.mongodb/mongosh/67dfee7d083b18dcaa300588_log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/.mongodb/mongosh/67dfee7d5df71d8c46300588_log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/.mongodb/mongosh/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/.mongodb/mongosh/mongosh_repl_history" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/.mongodb/mongosh/snippets/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/WiredTiger" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/WiredTiger.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/WiredTiger.turtle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/WiredTiger.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/WiredTigerHS.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/_mdb_catalog.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/collection-0-9597374111138343864.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/collection-2-9597374111138343864.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/collection-4-9597374111138343864.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/collection-7-9597374111138343864.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T11-20-29Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T11-20-40Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T11-50-47Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T13-10-50Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T13-12-42Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T19-56-20Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T20-00-50Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T20-02-54Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T20-35-44Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-25T08-56-17Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-25T09-00-00Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-25T09-07-30Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-25T09-11-03Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-25T09-19-40Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-25T09-29-11Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-25T09-58-27Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-25T10-08-00Z-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.interim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/index-1-9597374111138343864.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/index-3-9597374111138343864.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/index-5-9597374111138343864.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/index-6-9597374111138343864.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/index-8-9597374111138343864.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/index-9-9597374111138343864.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/journal/WiredTigerLog.0000000017" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/journal/WiredTigerPreplog.0000000001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/mongod.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/sizeStorer.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb-data/storage.bson" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2uoxaXbe1eJJeGn3Lt5FwQF5auE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "<unknown>",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/nikolay/definex-bootcamp-final-case-continued",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c9a385ae-df41-482f-bfb5-c4be63144c20" name="Changes" comment="" />
+      <created>1742928792578</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742928792578</updated>
+      <workItem from="1742928793312" duration="2791000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

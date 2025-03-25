@@ -1,0 +1,37 @@
+spring:
+  kafka:
+    topic:
+      error-log: error-logs
+      info-log: info-logs
+  application:
+    name: task-management-service
+  datasource:
+    url: jdbc:postgresql://localhost:5434/definex.task_management_service_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  eureka:
+    client:
+      register-with-eureka: true
+      fetch-registry: true
+    instance:
+      prefer-ip-address: true
+
+server:
+  port: 8081
+
+swagger:
+  api:
+    title: Task Management API
+    description: API documentation for managing tasks, projects, departments, and comments.
+    version: 1.0.0

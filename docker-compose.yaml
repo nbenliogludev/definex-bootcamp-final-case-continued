@@ -1,0 +1,192 @@
+version: '3.8'
+
+services:
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.4
+    restart: always
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    networks:
+      - kafka-network
+
+  kafka:
+    image: confluentinc/cp-kafka:7.4.4
+    restart: always
+    depends_on:
+      - zookeeper
+    ports:
+      - "29092:29092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    networks:
+      - kafka-network
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - ./mongodb-data:/data/db
+    networks:
+      - mongodb-network
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    restart: always
+    depends_on:
+      - mongodb
+    ports:
+      - "28081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: root
+      ME_CONFIG_MONGODB_SERVER: mongodb
+    networks:
+      - mongodb-network
+
+  eureka-server:
+    build:
+      context: ./eureka-server
+      dockerfile: Dockerfile
+    container_name: eureka-server
+    restart: always
+    ports:
+      - "8761:8761"
+    environment:
+      EUREKA_INSTANCE_HOSTNAME: eureka-server
+      EUREKA_CLIENT_REGISTER_WITH_EUREKA: 'false'
+      EUREKA_CLIENT_FETCH_REGISTRY: 'false'
+    networks:
+      - spring-network
+
+  postgres-file-storage-service:
+    image: postgres:15
+    container_name: file-storage-service-db
+    restart: always
+    environment:
+      POSTGRES_DB: definex.file_storage_service_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_file_storage_service_data:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+
+  postgres-user-authentication-service:
+    image: postgres:15
+    container_name: auth-service-db
+    restart: always
+    environment:
+      POSTGRES_DB: definex.user_authentication_service_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_auth_service_data:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+
+  postgres-task-management-service:
+    image: postgres:15
+    container_name: task-management-service-db
+    restart: always
+    environment:
+      POSTGRES_DB: definex.task_management_service_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_task_management_service_data:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    container_name: api-gateway
+    depends_on:
+      - eureka-server
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - spring-network
+
+  log-aggregation-service:
+    build:
+      context: ./log-aggregation-service
+      dockerfile: Dockerfile
+    container_name: log-aggregation-service
+    restart: always
+    depends_on:
+      - kafka
+      - mongodb
+      - api-gateway
+      - eureka-server
+    network_mode: "host"
+
+  file-storage-service:
+    build:
+      context: ./file-storage-service
+      dockerfile: Dockerfile
+    container_name: file-storage-service
+    restart: always
+    depends_on:
+      - postgres-file-storage-service
+      - api-gateway
+      - eureka-server
+    network_mode: "host"
+
+  user-authentication-service:
+    build:
+      context: ./user-authentication-service
+      dockerfile: Dockerfile
+    container_name: user-authentication-service
+    restart: always
+    depends_on:
+      - postgres-user-authentication-service
+      - api-gateway
+      - eureka-server
+    network_mode: "host"
+
+  task-management-service:
+    build:
+      context: ./task-management-service
+      dockerfile: Dockerfile
+    container_name: task-management-service
+    restart: always
+    depends_on:
+      - postgres-task-management-service
+      - api-gateway
+      - eureka-server
+    network_mode: "host"
+
+volumes:
+  postgres_file_storage_service_data:
+  postgres_auth_service_data:
+  postgres_task_management_service_data:
+
+networks:
+  kafka-network:
+  mongodb-network:
+  spring-network:
+  postgres-network:
