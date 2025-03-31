@@ -1,11 +1,16 @@
+server:
+  port: 8083
+
 spring:
   application:
     name: user-authentication-service
+
   datasource:
-    url: jdbc:postgresql://localhost:5433/definex.user_authentication_service_db
+    url: jdbc:postgresql://postgres-user-authentication-service:5432/definex_user_authentication_service_db
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
+
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -16,13 +21,6 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-  instance:
-    prefer-ip-address: true
-
 application:
   security:
     jwt:
@@ -31,5 +29,11 @@ application:
       refresh-token:
         expiration: 604800000
 
-server:
-  port: 8083
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true

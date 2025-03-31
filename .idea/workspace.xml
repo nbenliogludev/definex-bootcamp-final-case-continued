@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9a385ae-df41-482f-bfb5-c4be63144c20" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/eureka-server/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/eureka-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/eureka-server/Dockerfile" afterDir="false" />
@@ -109,6 +108,7 @@
       <change afterPath="$PROJECT_DIR$/user-authentication-service/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/UserAuthenticationServiceApplication.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/config/ApplicationConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/config/DataInitializer.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/config/SecurityConfiguration.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/controller/AuthenticationController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/dto/request/AuthenticationRequestDTO.java" afterDir="false" />
@@ -126,55 +126,9 @@
       <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/service/JwtService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/resources/application.yaml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/user-authentication-service/src/test/java/com/nbenliogludev/userauthenticationservice/UserAuthenticationServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/nbenliogludev/apigateway/config/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/nbenliogludev/apigateway/config/AuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/nbenliogludev/apigateway/mapper/RoutePermissionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/nbenliogludev/apigateway/mapper/RoutePermissionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/nbenliogludev/apigateway/util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/nbenliogludev/apigateway/util/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/.mongodb/mongosh/67dfee7d083b18dcaa300588_log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/.mongodb/mongosh/67dfee7d5df71d8c46300588_log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/.mongodb/mongosh/config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/.mongodb/mongosh/mongosh_repl_history" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/.mongodb/mongosh/snippets/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/WiredTiger" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/WiredTiger.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/WiredTiger.turtle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/WiredTiger.wt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/WiredTigerHS.wt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/_mdb_catalog.wt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/collection-0-9597374111138343864.wt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/collection-2-9597374111138343864.wt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/collection-4-9597374111138343864.wt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/collection-7-9597374111138343864.wt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T11-20-29Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T11-20-40Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T11-50-47Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T13-10-50Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T13-12-42Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T19-56-20Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T20-00-50Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T20-02-54Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-23T20-35-44Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-25T08-56-17Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-25T09-00-00Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-25T09-07-30Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-25T09-11-03Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-25T09-19-40Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-25T09-29-11Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-25T09-58-27Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.2025-03-25T10-08-00Z-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/diagnostic.data/metrics.interim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/index-1-9597374111138343864.wt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/index-3-9597374111138343864.wt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/index-5-9597374111138343864.wt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/index-6-9597374111138343864.wt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/index-8-9597374111138343864.wt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/index-9-9597374111138343864.wt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/journal/WiredTigerLog.0000000017" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/journal/WiredTigerPreplog.0000000001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/mongod.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/sizeStorer.wt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb-data/storage.bson" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,11 +136,22 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/user-authentication-service" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
 }]]></component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2uoxaXbe1eJJeGn3Lt5FwQF5auE" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -194,8 +159,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "<unknown>",
+    "Spring Boot.EurekaServerApplication.executor": "Run",
+    "Spring Boot.TaskManagementServiceApplication.executor": "Run",
+    "Spring Boot.UserAuthenticationServiceApplication.executor": "Run",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/nikolay/definex-bootcamp-final-case-continued",
     "node.js.detected.package.eslint": "true",
@@ -203,9 +175,63 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "run.configurations.included.in.services": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.UserAuthenticationServiceApplication">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="definex-bootcamp-final-case-continued" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="definex-bootcamp-final-case-continued" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="eureka-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.nbenliogludev.eurekaserver.EurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TaskManagementServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="task-management-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.nbenliogludev.taskmanagementservice.TaskManagementServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserAuthenticationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="user-authentication-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.nbenliogludev.userauthenticationservice.UserAuthenticationServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -222,7 +248,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1742928792578</updated>
-      <workItem from="1742928793312" duration="2791000" />
+      <workItem from="1742928793312" duration="18934000" />
+      <workItem from="1743083609712" duration="5010000" />
+      <workItem from="1743151546113" duration="26000" />
+      <workItem from="1743151575215" duration="27000" />
+      <workItem from="1743151681889" duration="9534000" />
+      <workItem from="1743424710064" duration="14015000" />
+      <workItem from="1743439820869" duration="38000" />
+      <workItem from="1743439864296" duration="968000" />
+      <workItem from="1743440900154" duration="30000" />
+      <workItem from="1743440936127" duration="1000" />
+      <workItem from="1743440949289" duration="13705000" />
     </task>
     <servers />
   </component>

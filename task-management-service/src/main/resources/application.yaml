@@ -3,13 +3,28 @@ spring:
     topic:
       error-log: error-logs
       info-log: info-logs
+
+    # Connect to the Kafka container (named 'kafka') on port 9092
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: group1
+      max-partition-fetch-bytes: 200000000
+    producer:
+      max-request-size: 200000000
+    properties:
+      max.request.size: 200000000
+      message.max.bytes: 200000000
+      fetch.message.max.bytes: 200000000
+
   application:
     name: task-management-service
+
   datasource:
-    url: jdbc:postgresql://localhost:5434/definex.task_management_service_db
+    url: jdbc:postgresql://postgres-task-management-service:5432/definex_task_management_service_db
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
+
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -20,12 +35,14 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-  eureka:
-    client:
-      register-with-eureka: true
-      fetch-registry: true
-    instance:
-      prefer-ip-address: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
 
 server:
   port: 8081

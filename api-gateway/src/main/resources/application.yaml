@@ -1,6 +1,10 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: api-gateway
+
   cloud:
     gateway:
       globalcors:
@@ -27,10 +31,16 @@ application:
   security:
     jwt:
       secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
-      expiration: 86400000 # e.g. 1 day in milliseconds
+      expiration: 86400000
       refresh-token:
-        expiration: 604800000 # e.g. 7 days in milliseconds
+        expiration: 604800000
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka   # <-- Add this
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
 
-server:
-  port: 8080
