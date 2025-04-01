@@ -8,6 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="task-management-service" />
+        <module name="api-gateway" />
+        <module name="log-aggregation-service" />
+        <module name="file-storage-service" />
         <module name="user-authentication-service" />
         <module name="eureka-server" />
       </profile>
@@ -15,7 +18,10 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="file-storage-service" options="-parameters" />
+      <module name="log-aggregation-service" options="-parameters" />
       <module name="task-management-service" options="-parameters" />
       <module name="user-authentication-service" options="-parameters" />
     </option>

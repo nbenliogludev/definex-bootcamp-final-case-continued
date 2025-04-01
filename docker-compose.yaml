@@ -1,9 +1,7 @@
 # docker-compose.yml
 
 services:
-  # ----------------------------------------------------
-  # 1) ZOOKEEPER & KAFKA
-  # ----------------------------------------------------
+
   zookeeper:
     image: confluentinc/cp-zookeeper:7.4.4
     container_name: zookeeper
@@ -22,7 +20,6 @@ services:
     depends_on:
       - zookeeper
     ports:
-      # Published on localhost:29092 for external connections
       - "29092:29092"
     environment:
       KAFKA_BROKER_ID: 1
@@ -35,9 +32,6 @@ services:
     networks:
       - kafka-network
 
-  # ----------------------------------------------------
-  # 2) MONGODB & MONGO-EXPRESS
-  # ----------------------------------------------------
   mongodb:
     image: mongo:latest
     container_name: mongodb
@@ -67,9 +61,6 @@ services:
     networks:
       - mongodb-network
 
-  # ----------------------------------------------------
-  # 3) EUREKA SERVER
-  # ----------------------------------------------------
   eureka-server:
     build:
       context: ./eureka-server
@@ -85,9 +76,6 @@ services:
     networks:
       - spring-network
 
-  # ----------------------------------------------------
-  # 4) POSTGRES FOR FILE-STORAGE-SERVICE
-  # ----------------------------------------------------
   postgres-file-storage-service:
     image: postgres:15
     container_name: file-storage-db
@@ -108,9 +96,6 @@ services:
       timeout: 5s
       retries: 5
 
-  # ----------------------------------------------------
-  # 5) FILE-STORAGE-SERVICE
-  # ----------------------------------------------------
   file-storage-service:
     build:
       context: ./file-storage-service
@@ -131,9 +116,6 @@ services:
     networks:
       - spring-network
 
-  # ----------------------------------------------------
-  # 6) POSTGRES FOR USER-AUTHENTICATION-SERVICE
-  # ----------------------------------------------------
   postgres-user-authentication-service:
     image: postgres:15
     container_name: user-auth-db
@@ -154,9 +136,6 @@ services:
       timeout: 5s
       retries: 5
 
-  # ----------------------------------------------------
-  # 7) USER-AUTHENTICATION-SERVICE
-  # ----------------------------------------------------
   user-authentication-service:
     build:
       context: ./user-authentication-service
@@ -177,9 +156,6 @@ services:
     networks:
       - spring-network
 
-  # ----------------------------------------------------
-  # 8) API-GATEWAY
-  # ----------------------------------------------------
   api-gateway:
     build:
       context: ./api-gateway
@@ -198,9 +174,6 @@ services:
     networks:
       - spring-network
 
-  # ----------------------------------------------------
-  # 9) POSTGRES FOR TASK-MANAGEMENT-SERVICE
-  # ----------------------------------------------------
   postgres-task-management-service:
     image: postgres:15
     container_name: task-management-db
@@ -221,9 +194,6 @@ services:
       timeout: 5s
       retries: 5
 
-  # ----------------------------------------------------
-  # 10) TASK-MANAGEMENT-SERVICE
-  # ----------------------------------------------------
   task-management-service:
     build:
       context: ./task-management-service
@@ -245,9 +215,6 @@ services:
       - spring-network
       - kafka-network
 
-  # ----------------------------------------------------
-  # 11) LOG-AGGREGATION-SERVICE
-  # ----------------------------------------------------
   log-aggregation-service:
     build:
       context: ./log-aggregation-service
@@ -277,17 +244,11 @@ services:
       - kafka-network
       - mongodb-network
 
-# ----------------------------------------------------
-# Named volumes for Postgres containers
-# ----------------------------------------------------
 volumes:
   postgres_file_storage_service_data:
   postgres_user_authentication_data:
   postgres_task_management_data:
 
-# ----------------------------------------------------
-# Networks
-# ----------------------------------------------------
 networks:
   spring-network:
   kafka-network:
