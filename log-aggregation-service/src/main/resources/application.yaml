@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: log-aggregation-service
+
+  data:
+    mongodb:
+      uri: "mongodb://root:root@mongodb-host:27017/definex_logs_db?authSource=admin"
+
+  kafka:
+    bootstrap-servers: "kafka-host:9092"
+    consumer:
+      group-id: group1
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+server:
+  port: 8084
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: "http://eureka-server-host:8761/eureka"
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+
+kafka:
+  topic:
+    info-log: infoLog
+    error-log: errorLog
+
+swagger:
+  api:
+    title: "Application Logs API"
+    description: "You can use this API to get application error logs and info logs."
+    version: "1.0"

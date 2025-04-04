@@ -23,6 +23,7 @@
       <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/FileStorageServiceApplication.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/controller/FileStorageController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/dto/request/FileUploadRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/dto/request/FileValidateRequestDTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/dto/response/FileUploadResponseDTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/dto/response/RestResponse.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/file-storage-service/src/main/java/com/nbenliogludev/filestorageservice/entity/FileMetadata.java" afterDir="false" />
@@ -41,7 +42,7 @@
       <change afterPath="$PROJECT_DIR$/log-aggregation-service/mvnw.cmd" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/log-aggregation-service/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/log-aggregation-service/src/main/java/com/nbenliogludev/logaggregationservice/LogAggregationServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log-aggregation-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log-aggregation-service/src/main/resources/application.yaml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/log-aggregation-service/src/test/java/com/nbenliogludev/logaggregationservice/LogAggregationServiceApplicationTests.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/task-management-service/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/task-management-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
@@ -126,10 +127,8 @@
       <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/service/JwtService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/resources/application.yaml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/user-authentication-service/src/test/java/com/nbenliogludev/userauthenticationservice/UserAuthenticationServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +137,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/file-storage-service" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -159,34 +158,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.EurekaServerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.TaskManagementServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.UserAuthenticationServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/nikolay/definex-bootcamp-final-case-continued&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.EurekaServerApplication.executor": "Run",
+    "Spring Boot.FileStorageServiceApplication.executor": "Run",
+    "Spring Boot.TaskManagementServiceApplication.executor": "Run",
+    "Spring Boot.UserAuthenticationServiceApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/nikolay/definex-bootcamp-final-case-continued",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.configurations.included.in.services": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.nbenliogludev.filestorageservice.dto.request" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -198,7 +201,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.UserAuthenticationServiceApplication">
+  <component name="RunManager" selected="Spring Boot.TaskManagementServiceApplication">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="definex-bootcamp-final-case-continued" />
       <method v="2">
@@ -284,7 +287,11 @@
       <workItem from="1743440936127" duration="1000" />
       <workItem from="1743440949289" duration="14639000" />
       <workItem from="1743517064139" duration="736000" />
-      <workItem from="1743536118090" duration="290000" />
+      <workItem from="1743536118090" duration="4421000" />
+      <workItem from="1743591512394" duration="19204000" />
+      <workItem from="1743756438345" duration="4686000" />
+      <workItem from="1743794961528" duration="3209000" />
+      <workItem from="1743804694028" duration="2606000" />
     </task>
     <servers />
   </component>

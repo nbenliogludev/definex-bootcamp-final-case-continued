@@ -1,6 +1,7 @@
 package com.nbenliogludev.filestorageservice.controller;
 
 import com.nbenliogludev.filestorageservice.dto.request.FileUploadRequestDTO;
+import com.nbenliogludev.filestorageservice.dto.request.FileValidateRequestDTO;
 import com.nbenliogludev.filestorageservice.dto.response.FileUploadResponseDTO;
 import com.nbenliogludev.filestorageservice.dto.response.RestResponse;
 import com.nbenliogludev.filestorageservice.entity.FileMetadata;
@@ -15,6 +16,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -55,6 +58,19 @@ public class FileStorageController {
     public ResponseEntity<RestResponse<String>> deleteFile(@PathVariable UUID fileId) {
         fileStorageService.deleteFileById(fileId);
         return ResponseEntity.ok(RestResponse.of("File marked as deleted. ID: " + fileId));
+    }
+
+    @PostMapping("/validate/batch")
+    public ResponseEntity<List<UUID>> validateFiles(@RequestBody FileValidateRequestDTO request) {
+        List<UUID> validIds = new ArrayList<>();
+
+        for (UUID fileId : request.fileIds()) {
+            if (fileStorageService.existsById(fileId)) {
+                validIds.add(fileId);
+            }
+        }
+
+        return ResponseEntity.ok(validIds);
     }
 
     @GetMapping("/validate/{id}")

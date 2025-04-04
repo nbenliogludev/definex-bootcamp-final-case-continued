@@ -6,7 +6,7 @@ spring:
     name: file-storage-service
 
   datasource:
-    url: jdbc:postgresql://postgres-file-storage-service:5432/definex_file_storage_service_db
+    url: "jdbc:postgresql://file-storage-db-host:5432/definex_file_storage_service_db"
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
@@ -26,11 +26,10 @@ spring:
       max-file-size: 10MB
       max-request-size: 10MB
 
-# Eureka client settings
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka   # <-- Add this
+      defaultZone: "http://eureka-server-host:8761/eureka"
     register-with-eureka: true
     fetch-registry: true
   instance:

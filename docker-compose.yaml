@@ -1,7 +1,9 @@
-# docker-compose.yml
+version: "3.8"
 
 services:
-
+  ###############################################################################
+  # ZOOKEEPER
+  ###############################################################################
   zookeeper:
     image: confluentinc/cp-zookeeper:7.4.4
     container_name: zookeeper
@@ -11,8 +13,13 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
     networks:
-      - kafka-network
+      app-network:
+        aliases:
+          - zookeeper-host
 
+  ###############################################################################
+  # KAFKA
+  ###############################################################################
   kafka:
     image: confluentinc/cp-kafka:7.4.4
     container_name: kafka
@@ -23,15 +30,20 @@ services:
       - "29092:29092"
     environment:
       KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper-host:2181
       # ADVERTISED LISTENERS (internal + external)
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-host:9092,PLAINTEXT_HOST://localhost:29092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     networks:
-      - kafka-network
+      app-network:
+        aliases:
+          - kafka-host
 
+  ###############################################################################
+  # MONGODB
+  ###############################################################################
   mongodb:
     image: mongo:latest
     container_name: mongodb
@@ -44,8 +56,13 @@ services:
     volumes:
       - ./mongodb-data:/data/db
     networks:
-      - mongodb-network
+      app-network:
+        aliases:
+          - mongodb-host
 
+  ###############################################################################
+  # MONGO EXPRESS
+  ###############################################################################
   mongo-express:
     image: mongo-express
     container_name: mongo-express
@@ -57,10 +74,14 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: root
-      ME_CONFIG_MONGODB_SERVER: mongodb
+      # Connect inside Docker to "mongodb-host"
+      ME_CONFIG_MONGODB_SERVER: mongodb-host
     networks:
-      - mongodb-network
+      - app-network  # short syntax: no aliases needed
 
+  ###############################################################################
+  # EUREKA SERVER
+  ###############################################################################
   eureka-server:
     build:
       context: ./eureka-server
@@ -74,8 +95,11 @@ services:
       - EUREKA_CLIENT_REGISTER_WITH_EUREKA=false
       - EUREKA_CLIENT_FETCH_REGISTRY=false
     networks:
-      - spring-network
+      - app-network  # short syntax: no aliases needed
 
+  ###############################################################################
+  # POSTGRES FOR FILE-STORAGE SERVICE
+  ###############################################################################
   postgres-file-storage-service:
     image: postgres:15
     container_name: file-storage-db
@@ -88,14 +112,19 @@ services:
       - "5432:5432"
     volumes:
       - postgres_file_storage_service_data:/var/lib/postgresql/data
-    networks:
-      - spring-network
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "postgres"]
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      app-network:
+        aliases:
+          - file-storage-db-host
 
+  ###############################################################################
+  # FILE-STORAGE SERVICE
+  ###############################################################################
   file-storage-service:
     build:
       context: ./file-storage-service
@@ -110,12 +139,24 @@ services:
       postgres-file-storage-service:
         condition: service_healthy
     environment:
+      - SPRING_APPLICATION_NAME=file-storage-service
+      - SERVER_PORT=8082
+
+      # Use the ALIAS as the host
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://file-storage-db-host:5432/definex_file_storage_service_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
       - EUREKA_CLIENT_REGISTERWITHEUREKA=true
       - EUREKA_CLIENT_FETCHREGISTRY=true
-    networks:
-      - spring-network
 
+    networks:
+      - app-network  # short syntax: no aliases needed
+
+  ###############################################################################
+  # POSTGRES FOR USER-AUTHENTICATION SERVICE
+  ###############################################################################
   postgres-user-authentication-service:
     image: postgres:15
     container_name: user-auth-db
@@ -128,14 +169,19 @@ services:
       - "5433:5432"
     volumes:
       - postgres_user_authentication_data:/var/lib/postgresql/data
-    networks:
-      - spring-network
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "postgres"]
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      app-network:
+        aliases:
+          - user-auth-db-host
 
+  ###############################################################################
+  # USER-AUTHENTICATION SERVICE
+  ###############################################################################
   user-authentication-service:
     build:
       context: ./user-authentication-service
@@ -150,12 +196,21 @@ services:
       postgres-user-authentication-service:
         condition: service_healthy
     environment:
+      - SPRING_APPLICATION_NAME=user-authentication-service
+      - SERVER_PORT=8083
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://user-auth-db-host:5432/definex_user_authentication_service_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
       - EUREKA_CLIENT_REGISTERWITHEUREKA=true
       - EUREKA_CLIENT_FETCHREGISTRY=true
     networks:
-      - spring-network
+      - app-network
 
+  ###############################################################################
+  # API GATEWAY
+  ###############################################################################
   api-gateway:
     build:
       context: ./api-gateway
@@ -172,8 +227,11 @@ services:
       - EUREKA_CLIENT_REGISTERWITHEUREKA=true
       - EUREKA_CLIENT_FETCHREGISTRY=true
     networks:
-      - spring-network
+      - app-network
 
+  ###############################################################################
+  # POSTGRES FOR TASK-MANAGEMENT SERVICE
+  ###############################################################################
   postgres-task-management-service:
     image: postgres:15
     container_name: task-management-db
@@ -186,14 +244,19 @@ services:
       - "5434:5432"
     volumes:
       - postgres_task_management_data:/var/lib/postgresql/data
-    networks:
-      - spring-network
     healthcheck:
       test: [ "CMD", "pg_isready", "-U", "postgres" ]
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      app-network:
+        aliases:
+          - task-mgmt-db-host
 
+  ###############################################################################
+  # TASK-MANAGEMENT SERVICE
+  ###############################################################################
   task-management-service:
     build:
       context: ./task-management-service
@@ -208,13 +271,25 @@ services:
       postgres-task-management-service:
         condition: service_healthy
     environment:
+      - SPRING_APPLICATION_NAME=task-management-service
+      - SERVER_PORT=8081
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://task-mgmt-db-host:5432/definex_task_management_service_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
       - EUREKA_CLIENT_REGISTERWITHEUREKA=true
       - EUREKA_CLIENT_FETCHREGISTRY=true
-    networks:
-      - spring-network
-      - kafka-network
 
+      # Kafka inside Docker: point to kafka-host:9092
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka-host:9092
+
+    networks:
+      - app-network
+
+  ###############################################################################
+  # LOG-AGGREGATION SERVICE
+  ###############################################################################
   log-aggregation-service:
     build:
       context: ./log-aggregation-service
@@ -233,23 +308,33 @@ services:
     environment:
       - SPRING_APPLICATION_NAME=log-aggregation-service
       - SERVER_PORT=8084
+
+      # Eureka
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
-      - SPRING_DATA_MONGODB_URI=mongodb://root:root@mongodb:27017/definex_logs_db?authSource=admin
-      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+
+      # Mongo inside Docker: "mongodb-host"
+      - SPRING_DATA_MONGODB_URI=mongodb://root:root@mongodb-host:27017/definex_logs_db?authSource=admin
+
+      # Kafka inside Docker: "kafka-host"
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka-host:9092
       - SPRING_KAFKA_CONSUMER_GROUP_ID=group1
       - KAFKA_TOPIC_INFO_LOG=infoLog
       - KAFKA_TOPIC_ERROR_LOG=errorLog
-    networks:
-      - spring-network
-      - kafka-network
-      - mongodb-network
 
+    networks:
+      - app-network
+
+###############################################################################
+# VOLUMES
+###############################################################################
 volumes:
   postgres_file_storage_service_data:
   postgres_user_authentication_data:
   postgres_task_management_data:
 
+###############################################################################
+# NETWORKS
+###############################################################################
 networks:
-  spring-network:
-  kafka-network:
-  mongodb-network:
+  app-network:
+    driver: bridge
