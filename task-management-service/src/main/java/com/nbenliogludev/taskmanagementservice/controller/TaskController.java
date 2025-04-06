@@ -2,6 +2,7 @@ package com.nbenliogludev.taskmanagementservice.controller;
 
 import com.nbenliogludev.taskmanagementservice.dto.InfoLogDTO;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskCreateRequestDTO;
+import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdateDetailsRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdatePriorityRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdateRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdateStateRequestDTO;
@@ -46,18 +47,26 @@ public class TaskController {
         return ResponseEntity.ok(RestResponse.of(response));
     }
 
-    @Operation(summary = "Update an existing task")
-    @PutMapping("/v1")
-    public ResponseEntity<RestResponse<TaskCreateResponseDTO>> updateTask(@RequestBody TaskUpdateRequestDTO taskDto) {
-        var response = taskService.updateTask(taskDto.id(), taskDto);
+    @Operation(summary = "Update the title and description of a task")
+    @PutMapping("/v1/{taskId}/details")
+    public ResponseEntity<RestResponse<TaskCreateResponseDTO>> updateTaskDetails(
+            @PathVariable UUID taskId,
+            @RequestBody TaskUpdateDetailsRequestDTO request
+    ) {
+        var updatedTask = taskService.updateTaskDetails(taskId, request);
+
         logProducer.produceInfoLog(InfoLogDTO.builder()
                 .service("task-management-service")
                 .timestamp(LocalDateTime.now())
-                .message("Task updated")
-                .description("Task with ID " + taskDto.id() + " has been updated.")
+                .message("Task details updated")
+                .description("Task with ID " + taskId
+                        + " now has title='" + request.title()
+                        + "', description='" + request.description() + "'")
                 .build());
-        return ResponseEntity.ok(RestResponse.of(response));
+
+        return ResponseEntity.ok(RestResponse.of(updatedTask));
     }
+
 
     @Operation(summary = "Update the state of a task")
     @PutMapping("/v1/{taskId}/state")

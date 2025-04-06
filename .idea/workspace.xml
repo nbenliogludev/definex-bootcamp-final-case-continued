@@ -67,8 +67,8 @@
       <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/request/ProjectCreateRequestDTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/request/ProjectUpdateRequestDTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/request/TaskCreateRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/request/TaskUpdateDetailsRequestDTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/request/TaskUpdatePriorityRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/request/TaskUpdateRequestDTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/request/TaskUpdateStateRequestDTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/response/CommentCreateResponseDTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/task-management-service/src/main/java/com/nbenliogludev/taskmanagementservice/dto/response/DepartmentCreateResponseDTO.java" afterDir="false" />
@@ -299,7 +299,7 @@
       <workItem from="1743756438345" duration="4686000" />
       <workItem from="1743794961528" duration="3209000" />
       <workItem from="1743804694028" duration="2658000" />
-      <workItem from="1743847853393" duration="10845000" />
+      <workItem from="1743847853393" duration="11188000" />
     </task>
     <servers />
   </component>
