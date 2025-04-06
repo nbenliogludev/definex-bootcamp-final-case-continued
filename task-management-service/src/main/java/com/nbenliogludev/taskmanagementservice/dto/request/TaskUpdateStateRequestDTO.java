@@ -1,9 +1,12 @@
 package com.nbenliogludev.taskmanagementservice.dto.request;
 
+import com.nbenliogludev.taskmanagementservice.enums.TaskState;
+
 /**
  * @author nbenliogludev
  */
 public record TaskUpdateStateRequestDTO (
-    String state
+        TaskState state,
+        String reason
 ) {
 }

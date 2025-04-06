@@ -3,9 +3,11 @@ package com.nbenliogludev.taskmanagementservice.service.impl;
 import com.nbenliogludev.taskmanagementservice.client.fileStorage.service.FileStorageService;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskCreateRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdateRequestDTO;
+import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdateStateRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.response.TaskCreateResponseDTO;
 import com.nbenliogludev.taskmanagementservice.entity.Project;
 import com.nbenliogludev.taskmanagementservice.entity.Task;
+import com.nbenliogludev.taskmanagementservice.enums.TaskState;
 import com.nbenliogludev.taskmanagementservice.mapper.TaskMapper;
 import com.nbenliogludev.taskmanagementservice.repository.ProjectRepository;
 import com.nbenliogludev.taskmanagementservice.repository.TaskRepository;
@@ -53,6 +55,35 @@ public class TaskServiceImpl implements TaskService {
         Task updated = taskRepository.save(task);
         return taskMapper.mapToTaskResponse(updated);
     }
+
+    @Override
+    public TaskCreateResponseDTO updateTaskState(UUID id, TaskUpdateStateRequestDTO request) {
+        Task task = taskRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Task not found"));
+
+        TaskState oldState = task.getState();
+        TaskState newState = request.state();
+
+        if (oldState == TaskState.COMPLETED) {
+            throw new RuntimeException("Cannot change state from COMPLETED to anything else");
+        }
+
+        if ((newState == TaskState.BLOCKED || newState == TaskState.CANCELLED)
+                && (request.reason() == null || request.reason().isBlank())) {
+            throw new RuntimeException("Reason is required when assigning BLOCKED or CANCELLED");
+        }
+
+        if (newState == TaskState.BLOCKED || newState == TaskState.CANCELLED) {
+            task.setReason(request.reason());
+        }
+
+        task.setState(newState);
+
+        Task updated = taskRepository.save(task);
+
+        return taskMapper.mapToTaskResponse(updated);
+    }
+
 
     private void validateAndSetAttachments(List<UUID> attachments, Task task) {
         if (attachments != null && !attachments.isEmpty()) {

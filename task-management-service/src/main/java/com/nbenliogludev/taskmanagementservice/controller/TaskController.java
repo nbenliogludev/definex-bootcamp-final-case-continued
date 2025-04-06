@@ -62,15 +62,15 @@ public class TaskController {
     @PutMapping("/v1/{taskId}/state")
     public ResponseEntity<RestResponse<TaskCreateResponseDTO>> updateTaskState(
             @PathVariable UUID taskId,
-            @RequestBody TaskUpdateStateRequestDTO stateRequest
+            @RequestBody TaskUpdateStateRequestDTO request
     ) {
-        var updatedTask = taskService.updateTaskState(taskId, stateRequest);
+        var updatedTask = taskService.updateTaskState(taskId, request);
 
         logProducer.produceInfoLog(InfoLogDTO.builder()
                 .service("task-management-service")
                 .timestamp(LocalDateTime.now())
                 .message("Task state updated")
-                .description("Task with ID " + taskId + " changed to state " + stateRequest.newState())
+                .description("Task with ID " + taskId + " changed to state " + request.state())
                 .build());
 
         return ResponseEntity.ok(RestResponse.of(updatedTask));
