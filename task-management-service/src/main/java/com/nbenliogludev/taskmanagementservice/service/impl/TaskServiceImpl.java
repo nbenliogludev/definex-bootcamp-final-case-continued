@@ -2,6 +2,7 @@ package com.nbenliogludev.taskmanagementservice.service.impl;
 
 import com.nbenliogludev.taskmanagementservice.client.fileStorage.service.FileStorageService;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskCreateRequestDTO;
+import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdatePriorityRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdateRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdateStateRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.response.TaskCreateResponseDTO;
@@ -95,6 +96,16 @@ public class TaskServiceImpl implements TaskService {
         return taskMapper.mapToTaskResponse(updated);
     }
 
+    @Override
+    public TaskCreateResponseDTO updateTaskPriority(UUID taskId, TaskUpdatePriorityRequestDTO request) {
+        Task task = taskRepository.findById(taskId)
+                .orElseThrow(() -> new RuntimeException("Task not found"));
+
+        task.setPriority(request.priority());
+
+        Task updated = taskRepository.save(task);
+        return taskMapper.mapToTaskResponse(updated);
+    }
 
     private void validateAndSetAttachments(List<UUID> attachments, Task task) {
         if (attachments != null && !attachments.isEmpty()) {

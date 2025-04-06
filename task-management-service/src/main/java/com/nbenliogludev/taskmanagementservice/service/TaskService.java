@@ -1,6 +1,7 @@
 package com.nbenliogludev.taskmanagementservice.service;
 
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskCreateRequestDTO;
+import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdatePriorityRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdateRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdateStateRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.response.TaskCreateResponseDTO;
@@ -20,6 +21,8 @@ public interface TaskService {
     TaskCreateResponseDTO updateTaskState(UUID id, TaskUpdateStateRequestDTO request);
 
     TaskCreateResponseDTO updateTaskAssignee(UUID taskId, UUID assigneeId);
+
+    TaskCreateResponseDTO updateTaskPriority(UUID taskId, TaskUpdatePriorityRequestDTO request);
 
     List<TaskCreateResponseDTO> getAllByProjectId(UUID projectId);
 
