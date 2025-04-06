@@ -84,6 +84,17 @@ public class TaskServiceImpl implements TaskService {
         return taskMapper.mapToTaskResponse(updated);
     }
 
+    @Override
+    public TaskCreateResponseDTO updateTaskAssignee(UUID taskId, UUID assigneeId) {
+        Task task = taskRepository.findById(taskId)
+                .orElseThrow(() -> new RuntimeException("Task not found"));
+
+        task.setAssigneeId(assigneeId);
+
+        Task updated = taskRepository.save(task);
+        return taskMapper.mapToTaskResponse(updated);
+    }
+
 
     private void validateAndSetAttachments(List<UUID> attachments, Task task) {
         if (attachments != null && !attachments.isEmpty()) {

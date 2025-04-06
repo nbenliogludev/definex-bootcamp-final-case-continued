@@ -19,6 +19,8 @@ public interface TaskService {
 
     TaskCreateResponseDTO updateTaskState(UUID id, TaskUpdateStateRequestDTO request);
 
+    TaskCreateResponseDTO updateTaskAssignee(UUID taskId, UUID assigneeId);
+
     List<TaskCreateResponseDTO> getAllByProjectId(UUID projectId);
 
     List<TaskCreateResponseDTO> getAllByAssigneeId(UUID assigneeId);
