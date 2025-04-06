@@ -2,6 +2,7 @@ package com.nbenliogludev.taskmanagementservice.controller;
 
 import com.nbenliogludev.taskmanagementservice.dto.InfoLogDTO;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskCreateRequestDTO;
+import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdatePriorityRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdateRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdateStateRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.response.RestResponse;
@@ -95,7 +96,23 @@ public class TaskController {
         return ResponseEntity.ok(RestResponse.of(updatedTask));
     }
 
+    @Operation(summary = "Update the priority of a task")
+    @PutMapping("/v1/{taskId}/priority")
+    public ResponseEntity<RestResponse<TaskCreateResponseDTO>> updateTaskPriority(
+            @PathVariable UUID taskId,
+            @RequestBody TaskUpdatePriorityRequestDTO request
+    ) {
+        var updatedTask = taskService.updateTaskPriority(taskId, request);
 
+        logProducer.produceInfoLog(InfoLogDTO.builder()
+                .service("task-management-service")
+                .timestamp(LocalDateTime.now())
+                .message("Task priority updated")
+                .description("Task with ID " + taskId + " changed priority to " + request.priority())
+                .build());
+
+        return ResponseEntity.ok(RestResponse.of(updatedTask));
+    }
 
     @Operation(summary = "Get all tasks by project ID")
     @GetMapping("/v1/project/{projectId}")
