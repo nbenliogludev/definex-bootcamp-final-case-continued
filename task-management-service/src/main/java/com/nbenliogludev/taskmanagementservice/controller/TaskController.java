@@ -76,6 +76,26 @@ public class TaskController {
         return ResponseEntity.ok(RestResponse.of(updatedTask));
     }
 
+    @Operation(summary = "Assign Task to a user")
+    @PutMapping("/v1/{taskId}/assignee/{assigneeId}")
+    public ResponseEntity<RestResponse<TaskCreateResponseDTO>> assignTaskToUser(
+            @PathVariable UUID taskId,
+            @PathVariable UUID assigneeId
+    ) {
+
+        var updatedTask = taskService.assignTaskToUser(taskId, assigneeId);
+
+        logProducer.produceInfoLog(InfoLogDTO.builder()
+                .service("task-management-service")
+                .timestamp(LocalDateTime.now())
+                .message("Task assigned")
+                .description("Task " + taskId + " assigned to user " + assigneeId)
+                .build());
+
+        return ResponseEntity.ok(RestResponse.of(updatedTask));
+    }
+
+
 
     @Operation(summary = "Get all tasks by project ID")
     @GetMapping("/v1/project/{projectId}")
