@@ -129,7 +129,6 @@
       <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/java/com/nbenliogludev/userauthenticationservice/service/JwtService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/user-authentication-service/src/main/resources/application.yaml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/user-authentication-service/src/test/java/com/nbenliogludev/userauthenticationservice/UserAuthenticationServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,7 +298,7 @@
       <workItem from="1743756438345" duration="4686000" />
       <workItem from="1743794961528" duration="3209000" />
       <workItem from="1743804694028" duration="2658000" />
-      <workItem from="1743847853393" duration="11355000" />
+      <workItem from="1743847853393" duration="11418000" />
     </task>
     <servers />
   </component>
