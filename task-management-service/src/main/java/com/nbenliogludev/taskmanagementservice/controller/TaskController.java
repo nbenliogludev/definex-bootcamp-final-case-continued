@@ -83,7 +83,7 @@ public class TaskController {
             @PathVariable UUID assigneeId
     ) {
 
-        var updatedTask = taskService.assignTaskToUser(taskId, assigneeId);
+        var updatedTask = taskService.updateTaskAssignee(taskId, assigneeId);
 
         logProducer.produceInfoLog(InfoLogDTO.builder()
                 .service("task-management-service")
