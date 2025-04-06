@@ -4,7 +4,6 @@ import com.nbenliogludev.taskmanagementservice.dto.InfoLogDTO;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskCreateRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdateDetailsRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdatePriorityRequestDTO;
-import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdateRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.request.TaskUpdateStateRequestDTO;
 import com.nbenliogludev.taskmanagementservice.dto.response.RestResponse;
 import com.nbenliogludev.taskmanagementservice.dto.response.TaskCreateResponseDTO;
